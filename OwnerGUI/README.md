@@ -1,8 +1,16 @@
-# React + Vite
+# FRONT END README
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## To install the dependencies to run the front end
 
-Currently, two official plugins are available:
+1. Go to CS4400-PHASE4/OwnerGUI in the terminal
+2. Run "npm install" to get all of the packages (like mui for clean buttons etc.)
+3. Type "npm run dev" to start up a local instance of the front end
+4. The terminal will give you a link (something like http://localhost:5173/) which will show the front end
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Basic React explanation
+
+- React.js is a tool for the Javascript programming language that lets you make good looking websites easily.
+- Websites/Apps in react are made up of components like Headers, Buttons, Pictures, etc.
+- You can put a component inside of a component (Like how a header at the top of the screen might have a button in it)
+- For this project, each component gets its own folder. The index.jsx file in that folder is used to write that component, and all sub folders contain components used inside of that outer component.
+- All code you will be worried about for the front end is in the OwnerGUI/src folder
