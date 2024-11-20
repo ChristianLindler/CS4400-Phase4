@@ -26,14 +26,14 @@ def hire_employee():
     try:
         # Get data from the request
         username = request.json['username']
-        tax_id = request.json['tax_id']
+        id = request.json['id']
 
         # Establish connection
         conn = get_db_connection()
         cursor = conn.cursor()
 
         # Call the stored procedure for hiring
-        cursor.callproc('hire_employee', [username, tax_id])
+        cursor.callproc('hire_employee', [username, id])
         conn.commit()
 
         return jsonify({"message": "Employee hired successfully!"}), 200
@@ -52,14 +52,14 @@ def fire_employee():
     try:
         # Get data from the request
         username = request.json['username']
-        tax_id = request.json['tax_id']
+        id = request.json['id']
 
         # Establish connection
         conn = get_db_connection()
         cursor = conn.cursor()
 
         # Call the stored procedure for firing
-        cursor.callproc('fire_employee', [username, tax_id])
+        cursor.callproc('fire_employee', [username, id])
         conn.commit()
 
         return jsonify({"message": "Employee fired successfully!"}), 200

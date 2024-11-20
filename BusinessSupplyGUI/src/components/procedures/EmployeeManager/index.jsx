@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { TextField, Button, Box, Grid, Typography } from '@mui/material';
 
-const HireFireForm = () => {
+const EmployeeManager = () => {
   const [username, setUsername] = useState('');
   const [id, setId] = useState('');
   const [message, setMessage] = useState('');
@@ -14,7 +14,7 @@ const HireFireForm = () => {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ username, tax_id: id }),
+          body: JSON.stringify({ username, id: id }),
         });
         
         const data = await response.json();
@@ -41,7 +41,7 @@ const HireFireForm = () => {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ username, tax_id: id }),
+          body: JSON.stringify({ username, id: id }),
         });
         
         const data = await response.json();
@@ -96,4 +96,4 @@ const HireFireForm = () => {
   );
 };
 
-export default HireFireForm;
+export default EmployeeManager

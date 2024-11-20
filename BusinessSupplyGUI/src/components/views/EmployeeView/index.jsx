@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { DataGrid } from '@mui/x-data-grid';
+import React, { useEffect, useState } from 'react'
+import { DataGrid } from '@mui/x-data-grid'
 
-const OwnerDashboard = () => {
-    const [rows, setRows] = useState([]);
+const EmployeeView = () => {
+    const [rows, setRows] = useState([])
 
     useEffect(() => {
         fetch('http://localhost:5000/api/display_employee_view')
             .then(response => response.json())
             .then(data => setRows(data))
-            .catch(error => console.error('Error fetching data:', error));
-    }, []);
+            .catch(error => console.error('Error fetching data:', error))
+    }, [])
 
     const columns = [
         { field: 'username', headerName: 'Username', width: 150 },
@@ -20,7 +20,7 @@ const OwnerDashboard = () => {
         { field: 'licenseID', headerName: 'License Identifier', width: 200 },
         { field: 'driving_experience', headerName: 'Driving Experience', width: 200 },
         { field: 'manager_status', headerName: 'Manager Status', width: 150 },
-    ];
+    ]
 
     return (
         <div style={{ height: 400, width: '100%' }}>
@@ -31,7 +31,7 @@ const OwnerDashboard = () => {
                 getRowId={(row) => row.username}
             />
         </div>
-    );
-};
+    )
+}
 
-export default OwnerDashboard;
+export default EmployeeView
