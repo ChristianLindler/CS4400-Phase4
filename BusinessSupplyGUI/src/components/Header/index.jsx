@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, Toolbar, Typography } from '@mui/material';
+import { AppBar, Toolbar } from '@mui/material';
 
 const Header = () => {
     return (
@@ -9,7 +9,7 @@ const Header = () => {
         >
             <Toolbar>
                 <h3>
-                    Business Supply Owner Dashboard
+                    Business Supply Dashboard
                 </h3>
             </Toolbar>
         </AppBar>
