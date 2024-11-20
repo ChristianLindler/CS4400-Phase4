@@ -1,19 +1,62 @@
 import React, { useState } from 'react';
 import { TextField, Button, Box, Grid, Typography } from '@mui/material';
 
-const HireFireForm = ({ onHire, onFire }) => {
+const HireFireForm = () => {
   const [username, setUsername] = useState('');
   const [id, setId] = useState('');
+  const [message, setMessage] = useState('');
 
-  const handleSubmitHire = () => {
+  const handleSubmitHire = async () => {
     if (username && id) {
-      onHire(username, id);
+      try {
+        const response = await fetch('http://localhost:5000/api/hire_employee', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ username, tax_id: id }),
+        });
+        
+        const data = await response.json();
+        
+        if (response.ok) {
+          setMessage('Employee hired successfully');
+        } else {
+          setMessage(`Error: ${data.error || 'Unknown error'}`);
+        }
+      } catch (error) {
+        setMessage('Network error. Please try again later.');
+        console.error('Error:', error);
+      }
+    } else {
+      setMessage('Please fill in both fields.');
     }
   };
 
-  const handleSubmitFire = () => {
+  const handleSubmitFire = async () => {
     if (username && id) {
-      onFire(username, id);
+      try {
+        const response = await fetch('http://localhost:5000/api/fire_employee', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ username, tax_id: id }),
+        });
+        
+        const data = await response.json();
+        
+        if (response.ok) {
+          setMessage('Employee fired successfully');
+        } else {
+          setMessage(`Error: ${data.error || 'Unknown error'}`);
+        }
+      } catch (error) {
+        setMessage('Network error. Please try again later.');
+        console.error('Error:', error);
+      }
+    } else {
+      setMessage('Please fill in both fields.');
     }
   };
 
@@ -48,6 +91,7 @@ const HireFireForm = ({ onHire, onFire }) => {
           Fire Employee
         </Button>
       </Box>
+      {message && <Typography sx={{ mt: 2 }} color="textSecondary">{message}</Typography>}
     </Box>
   );
 };

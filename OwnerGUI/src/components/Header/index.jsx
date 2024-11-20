@@ -9,7 +9,7 @@ const Header = () => {
         >
             <Toolbar>
                 <h3>
-                    Global Company Owner Dashboard
+                    Business Supply Owner Dashboard
                 </h3>
             </Toolbar>
         </AppBar>
