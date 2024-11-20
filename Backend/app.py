@@ -9,7 +9,7 @@ CORS(app)
 # MySQL connection settings
 DB_CONFIG = {
     'user': 'root',
-    'password': '1017',
+    'password': '****',
     'host': 'localhost',
     'port': 3306,
     'database': 'business_supply',
