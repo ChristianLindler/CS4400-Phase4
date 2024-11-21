@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { DataGrid } from '@mui/x-data-grid'
 
-const EmployeeView = () => {
+const OwnerView = () => {
     const [rows, setRows] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/display_employee_view')
+        fetch('http://localhost:5000/api/display_owner_view')
             .then(response => response.json())
             .then(data => setRows(data))
             .catch(error => console.error('Error fetching data:', error))
@@ -13,13 +13,14 @@ const EmployeeView = () => {
 
     const columns = [
         { field: 'username', headerName: 'Username', width: 120 },
-        { field: 'taxID', headerName: 'Tax Identifier', width: 120 },
-        { field: 'salary', headerName: 'Salary', width: 80 },
-        { field: 'hired', headerName: 'Hiring Date', width: 200 },
-        { field: 'employee_experience', headerName: 'Experience Level', width: 140 },
-        { field: 'licenseID', headerName: 'License Identifier', width: 140 },
-        { field: 'driving_experience', headerName: 'Driving Experience', width: 140 },
-        { field: 'manager_status', headerName: 'Manager Status', width: 150 },
+        { field: 'first_name', headerName: 'First Name', width: 150 },
+        { field: 'last_name', headerName: 'Last Name', width: 150 },
+        { field: 'address', headerName: 'Address', width: 200 },
+        { field: 'num_businesses', headerName: 'Num Businesses', width: 150 },
+        { field: 'num_places', headerName: 'Num Places', width: 100 },
+        { field: 'highs', headerName: 'Highs', width: 100 },
+        { field: 'lows', headerName: 'Lows', width: 100 },
+        { field: 'debt', headerName: 'Debt', width: 100 },
     ]
 
     return (
@@ -34,4 +35,4 @@ const EmployeeView = () => {
     )
 }
 
-export default EmployeeView
+export default OwnerView

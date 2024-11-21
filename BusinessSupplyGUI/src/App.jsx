@@ -1,6 +1,13 @@
 import React, { useState } from 'react'
 import Header from './components/Header'
+import Footer from './components/Footer'
 import DisplayEmployeeView from './components/views/EmployeeView'
+import DisplayDriverView from './components/views/DriverView'
+import DisplayLocationView from './components/views/LocationView'
+import DisplayOwnerView from './components/views/OwnerView'
+import DisplayProductView from './components/views/ProductView'
+import DisplayServiceView from './components/views/ServiceView'
+
 import ManageEmployees from './components/procedures/EmployeeManager'
 import HomePage from './components/HomePage'
 import { Paper } from '@mui/material'
@@ -17,7 +24,7 @@ const App = () => {
     <div className="App">
       <Header page={page} onPageChange={handlePageChange} />
 
-      <div style={{ padding: '20px', marginTop: '64px' }}>
+      <div style={{ padding: '20px', marginTop: '64px', flexGrow: 1 }}>
         <Paper 
           sx={{
             backgroundColor: 'white',
@@ -28,9 +35,16 @@ const App = () => {
         >
           {page === '' && <HomePage />}
           {page === 'employee-view' && <DisplayEmployeeView />}
+          {page === 'driver-view' && <DisplayDriverView />}
+          {page === 'location-view' && <DisplayLocationView />}
+          {page === 'owner-view' && <DisplayOwnerView />}
+          {page === 'product-view' && <DisplayProductView />}
+          {page === 'service-view' && <DisplayServiceView />}
+
           {page === 'manage-employees' && <ManageEmployees />}
         </Paper>
       </div>
+      <Footer/>
     </div>
   )
 }

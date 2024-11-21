@@ -77,11 +77,111 @@ def fire_employee():
 
 # ============================== VIEWS ================================
 @app.route('/api/display_employee_view', methods=['GET'])
-def get_display_owner_view():
+def get_display_employee_view():
     try:
         conn = get_db_connection()
         cursor = conn.cursor(dictionary=True)
         cursor.execute('SELECT * FROM display_employee_view;')
+        rows = cursor.fetchall()
+
+        return jsonify(rows)
+
+    except Exception as e:
+        print('Error')
+        return jsonify({"error": str(e)}), 500
+    
+    finally:
+        if cursor:
+            cursor.close()
+        if conn:
+            conn.close()
+
+@app.route('/api/display_driver_view', methods=['GET'])
+def get_display_driver_view():
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute('SELECT * FROM display_driver_view;')
+        rows = cursor.fetchall()
+
+        return jsonify(rows)
+
+    except Exception as e:
+        print('Error')
+        return jsonify({"error": str(e)}), 500
+    
+    finally:
+        if cursor:
+            cursor.close()
+        if conn:
+            conn.close()
+
+@app.route('/api/display_location_view', methods=['GET'])
+def get_display_location_view():
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute('SELECT * FROM display_location_view;')
+        rows = cursor.fetchall()
+
+        return jsonify(rows)
+
+    except Exception as e:
+        print('Error')
+        return jsonify({"error": str(e)}), 500
+    
+    finally:
+        if cursor:
+            cursor.close()
+        if conn:
+            conn.close()
+
+@app.route('/api/display_owner_view', methods=['GET'])
+def get_display_owner_view():
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute('SELECT * FROM display_owner_view;')
+        rows = cursor.fetchall()
+
+        return jsonify(rows)
+
+    except Exception as e:
+        print('Error')
+        return jsonify({"error": str(e)}), 500
+    
+    finally:
+        if cursor:
+            cursor.close()
+        if conn:
+            conn.close()
+
+@app.route('/api/display_product_view', methods=['GET'])
+def get_display_product_view():
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute('SELECT * FROM display_product_view;')
+        rows = cursor.fetchall()
+
+        return jsonify(rows)
+
+    except Exception as e:
+        print('Error')
+        return jsonify({"error": str(e)}), 500
+    
+    finally:
+        if cursor:
+            cursor.close()
+        if conn:
+            conn.close()
+
+@app.route('/api/display_service_view', methods=['GET'])
+def get_display_service_view():
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute('SELECT * FROM display_service_view;')
         rows = cursor.fetchall()
 
         return jsonify(rows)

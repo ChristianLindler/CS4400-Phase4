@@ -77,7 +77,12 @@ const Header = ({ page, onPageChange }) => {
               onClose={handleCloseView}
             >
               <MenuItem onClick={() => handleViewSelection('employee-view')}>Employee View</MenuItem>
-              {/* Add more view options here */}
+              <MenuItem onClick={() => handleViewSelection('driver-view')}>Driver View</MenuItem>
+              <MenuItem onClick={() => handleViewSelection('location-view')}>Location View</MenuItem>
+              <MenuItem onClick={() => handleViewSelection('owner-view')}>Owner View</MenuItem>
+              <MenuItem onClick={() => handleViewSelection('product-view')}>Product View</MenuItem>
+              <MenuItem onClick={() => handleViewSelection('service-view')}>Service View</MenuItem>
+
             </Menu>
 
             {/* Button to open the Procedure dropdown */}

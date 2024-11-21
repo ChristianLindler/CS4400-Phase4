@@ -14,3 +14,16 @@
   font-family: 'Roboto', sans-serif;
   min-height: 100vh;
 }
+
+body, html, #root {
+  height: 100%; /* Ensures the full viewport height is used */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#root > div {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
