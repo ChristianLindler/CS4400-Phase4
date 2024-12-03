@@ -29,13 +29,16 @@ def add_owner():
         # Get data from the request
         username = request.json['username']
         first_name = request.json['first_name']
+        last_name = request.json['last_name']
+        address = request.json['address']
+        birthdate = request.json['birthdate']
         
         # Establish connection
         conn = get_db_connection()
         cursor = conn.cursor()
 
         # Call the stored procedure to add an owner
-        cursor.callproc('add_owner', [username, first_name])
+        cursor.callproc('add_owner', [username, first_name, last_name, address, birthdate])
         conn.commit()
 
         return jsonify({"message": "Owner added successfully!"}), 200
@@ -49,6 +52,7 @@ def add_owner():
         if conn:
             conn.close()
 
+
 @app.route('/api/add_employee', methods=['POST'])
 def add_employee():
     cursor = None
@@ -57,13 +61,21 @@ def add_employee():
         # Get data from the request
         username = request.json['username']
         first_name = request.json['first_name']
+        last_name = request.json['last_name']
+        address = request.json['address']
+        birthdate = request.json['birthdate']
+        tax_id = request.json['taxID']
+        hired = request.json['hired']
+        employee_experience = request.json['employee_experience']
+        salary = request.json['salary']
         
         # Establish connection
         conn = get_db_connection()
         cursor = conn.cursor()
 
         # Call the stored procedure to add an employee
-        cursor.callproc('add_employee', [username, first_name])
+        cursor.callproc('add_employee', [username, first_name, last_name, address, birthdate, 
+                                         tax_id, hired, employee_experience, salary])
         conn.commit()
 
         return jsonify({"message": "Employee added successfully!"}), 200
@@ -78,6 +90,7 @@ def add_employee():
             conn.close()
 
 
+
 @app.route('/api/add_driver_role', methods=['POST'])
 def add_driver_role():
     cursor = None
@@ -86,13 +99,15 @@ def add_driver_role():
         # Get data from the request
         username = request.json['username']
         license_id = request.json['licenseID']
+        license_type = request.json['license_type']
+        driver_experience = request.json['driver_experience']
         
         # Establish connection
         conn = get_db_connection()
         cursor = conn.cursor()
 
         # Call the stored procedure to add a driver role
-        cursor.callproc('add_driver_role', [username, license_id])
+        cursor.callproc('add_driver_role', [username, license_id, license_type, driver_experience])
         conn.commit()
 
         return jsonify({"message": "Driver role added successfully!"}), 200
@@ -105,6 +120,7 @@ def add_driver_role():
             cursor.close()
         if conn:
             conn.close()
+
 
 @app.route('/api/add_worker_role', methods=['POST'])
 def add_worker_role():
@@ -141,13 +157,14 @@ def add_product():
         # Get data from the request
         barcode = request.json['barcode']
         name = request.json['name']
-        
+        weight = request.json['weight']
+
         # Establish connection
         conn = get_db_connection()
         cursor = conn.cursor()
 
         # Call the stored procedure to add a product
-        cursor.callproc('add_product', [barcode, name])
+        cursor.callproc('add_product', [barcode, name, weight])
         conn.commit()
 
         return jsonify({"message": "Product added successfully!"}), 200
@@ -438,39 +455,6 @@ def refuel_van():
         conn.commit()
 
         return jsonify({"message": "Van refueled successfully!"}), 200
-
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
-
-    finally:
-        if cursor:
-            cursor.close()
-        if conn:
-            conn.close()
-
-@app.route('/api/fuel_required', methods=['GET'])
-def fuel_required():
-    cursor = None
-    conn = None
-    try:
-        # Get query parameters from the request
-        departure = request.args.get('departure')
-        arrival = request.args.get('arrival')
-
-        # Establish connection
-        conn = get_db_connection()
-        cursor = conn.cursor()
-
-        # Execute the function call
-        query = "SELECT fuel_required(%s, %s) AS fuel_needed;"
-        cursor.execute(query, (departure, arrival))
-        result = cursor.fetchone()
-
-        # Check if the function returned a result
-        if result and 'fuel_needed' in result:
-            return jsonify({"fuel_needed": result['fuel_needed']}), 200
-        else:
-            return jsonify({"message": "No result returned from function"}), 404
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500

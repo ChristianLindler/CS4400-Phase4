@@ -110,8 +110,9 @@ const Header = ({ page, onPageChange }) => {
               open={openProcedure}
               onClose={handleCloseProcedure}
             >
-              <MenuItem onClick={() => handleProcedureSelection('manage-employees')}>Manage Employees</MenuItem>
-              {/* Add more procedure options here */}
+              <MenuItem onClick={() => handleProcedureSelection('role-manager')}>Manage Roles</MenuItem>
+              <MenuItem onClick={() => handleProcedureSelection('product-manager')}>Manage Products</MenuItem>
+
             </Menu>
 
             <IconButton color="inherit" onClick={handleHomeClick} sx={{ mr: 2 }}>

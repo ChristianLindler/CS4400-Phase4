@@ -8,7 +8,9 @@ import DisplayOwnerView from './components/views/OwnerView'
 import DisplayProductView from './components/views/ProductView'
 import DisplayServiceView from './components/views/ServiceView'
 
-import ManageEmployees from './components/procedures/EmployeeManager'
+import RoleManager from './components/procedures/RoleManager'
+import ProductManager from './components/procedures/ProductManager'
+
 import HomePage from './components/HomePage'
 import { Paper } from '@mui/material'
 import './App.css'
@@ -41,7 +43,8 @@ const App = () => {
           {page === 'product-view' && <DisplayProductView />}
           {page === 'service-view' && <DisplayServiceView />}
 
-          {page === 'manage-employees' && <ManageEmployees />}
+          {page === 'role-manager' && <RoleManager />}
+          {page === 'product-manager' && <ProductManager />}
         </Paper>
       </div>
       <Footer/>
