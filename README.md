@@ -29,16 +29,17 @@ With both the front end and backend running, you should now be free to use views
 
 # Explanation of Technologies
 
-- Flask: Used as the backend framework to build and expose RESTful APIs. Its simplicity and flexibility allowed for seamless integration with MySQL and rapid development of business logic.
-- MySQL: Served as the relational database to store and query data efficiently. Stored procedures and views in MySQL enhanced the application's modularity and performance.
-- Flask-CORS: Enabled secure cross-origin communication between the backend and the React frontend, ensuring smooth interaction while maintaining security.
-- React: Used to create a dynamic and user-friendly frontend for the application. Its component-based architecture facilitated reusable UI elements, improving development efficiency and user experience.
+- Flask: Used as the backend framework to build REST APIs. Allowed for integration with MySQL database.
+- MySQL: Served as the relational database to store and query our data, and also our stored procedures and views.
+- React: Used to create a dynamic frontend for the application. Its component-based architecture facilitated reusable UI elements, improving development efficiency and user experience.
+
+To complete the application, we created a Python backend with Flask and MySQL Connector. When running, this API can be used to call our stored procedures and views because there is a route for every procedure/view. Then, we made a React frontend which displayed our views using MUI datagrids and had forms and buttons for our procedures. Ultimately, these tools let use make a fully functional web application which uses fetch to make requests to our server which then calls the relevant procedure/view from the SQL.
 
 ---
 
 # Distribution of Work
 
 - Christian: Setup React front end and flask server
-- Chance: Wrote home page and tested app
+- Chance: Wrote home page and tested application
 - Sebastian: Fixed sql from phase 3
 - Owen: Tested application
