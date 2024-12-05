@@ -10,10 +10,12 @@ import DisplayServiceView from './components/views/ServiceView'
 
 import RoleManager from './components/procedures/RoleManager'
 import ProductManager from './components/procedures/ProductManager'
+import BusinessManager from './components/procedures/BusinessManager'
 
 import HomePage from './components/HomePage'
 import { Paper } from '@mui/material'
 import './App.css'
+import VanManager from './components/procedures/VanManager'
 
 const App = () => {
   const [page, setPage] = useState('')
@@ -45,6 +47,8 @@ const App = () => {
 
           {page === 'role-manager' && <RoleManager />}
           {page === 'product-manager' && <ProductManager />}
+          {page === 'business-manager' && <BusinessManager />}
+          {page === 'van-manager' && <VanManager />}
         </Paper>
       </div>
       <Footer/>

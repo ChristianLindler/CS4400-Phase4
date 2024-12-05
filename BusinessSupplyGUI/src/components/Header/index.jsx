@@ -112,6 +112,8 @@ const Header = ({ page, onPageChange }) => {
             >
               <MenuItem onClick={() => handleProcedureSelection('role-manager')}>Manage Roles</MenuItem>
               <MenuItem onClick={() => handleProcedureSelection('product-manager')}>Manage Products</MenuItem>
+              <MenuItem onClick={() => handleProcedureSelection('business-manager')}>Manage Businesses</MenuItem>
+              <MenuItem onClick={() => handleProcedureSelection('van-manager')}>Manage Vans</MenuItem>
 
             </Menu>
 

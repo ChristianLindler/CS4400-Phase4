@@ -7,7 +7,13 @@ const ProductView = () => {
     useEffect(() => {
         fetch('http://localhost:5000/api/display_product_view')
             .then(response => response.json())
-            .then(data => setRows(data))
+            .then(data => {
+                const dataWithIds = data.map((row, index) => ({
+                    id: index + 1,
+                    ...row
+                }));
+                setRows(dataWithIds);
+            })
             .catch(error => console.error('Error fetching data:', error))
     }, [])
 
@@ -22,10 +28,9 @@ const ProductView = () => {
     return (
         <div style={{ height: 400, width: '100%' }}>
             <DataGrid 
-                rows={rows} 
+                rows={rows}
                 columns={columns} 
                 pageSize={5} 
-                getRowId={(row) => row.product_name}
             />
         </div>
     )

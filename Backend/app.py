@@ -9,7 +9,7 @@ CORS(app)
 # MySQL connection settings
 DB_CONFIG = {
     'user': 'root',
-    'password': '****',
+    'password': '1017',
     'host': 'localhost',
     'port': 3306,
     'database': 'business_supply',
@@ -187,13 +187,16 @@ def add_van():
         van_id = request.json['id']
         tag = request.json['tag']
         fuel = request.json['fuel']
-        
+        capacity = request.json['capacity']
+        sales = request.json['sales']
+        driven_by = request.json['driven_by']
+
         # Establish connection
         conn = get_db_connection()
         cursor = conn.cursor()
 
         # Call the stored procedure to add a van
-        cursor.callproc('add_van', [van_id, tag, fuel])
+        cursor.callproc('add_van', [van_id, tag, fuel, capacity, sales, driven_by])
         conn.commit()
 
         return jsonify({"message": "Van added successfully!"}), 200
@@ -207,6 +210,7 @@ def add_van():
         if conn:
             conn.close()
 
+
 @app.route('/api/add_business', methods=['POST'])
 def add_business():
     cursor = None
@@ -215,13 +219,15 @@ def add_business():
         # Get data from the request
         long_name = request.json['long_name']
         rating = request.json['rating']
+        spent = request.json['spent']
+        location = request.json['location']
         
         # Establish connection
         conn = get_db_connection()
         cursor = conn.cursor()
 
         # Call the stored procedure to add a business
-        cursor.callproc('add_business', [long_name, rating])
+        cursor.callproc('add_business', [long_name, rating, spent, location])
         conn.commit()
 
         return jsonify({"message": "Business added successfully!"}), 200
@@ -235,6 +241,7 @@ def add_business():
         if conn:
             conn.close()
 
+
 @app.route('/api/add_service', methods=['POST'])
 def add_service():
     cursor = None
@@ -243,13 +250,15 @@ def add_service():
         # Get data from the request
         service_id = request.json['id']
         long_name = request.json['long_name']
+        home_base = request.json['home_base']
+        manager = request.json['manager']
         
         # Establish connection
         conn = get_db_connection()
         cursor = conn.cursor()
 
         # Call the stored procedure to add a service
-        cursor.callproc('add_service', [service_id, long_name])
+        cursor.callproc('add_service', [service_id, long_name, home_base, manager])
         conn.commit()
 
         return jsonify({"message": "Service added successfully!"}), 200
@@ -263,6 +272,7 @@ def add_service():
         if conn:
             conn.close()
 
+
 @app.route('/api/add_location', methods=['POST'])
 def add_location():
     cursor = None
@@ -272,13 +282,14 @@ def add_location():
         label = request.json['label']
         x_coord = request.json['x_coord']
         y_coord = request.json['y_coord']
+        ip_space = request.json['ip_space']
         
         # Establish connection
         conn = get_db_connection()
         cursor = conn.cursor()
 
         # Call the stored procedure to add a location
-        cursor.callproc('add_location', [label, x_coord, y_coord])
+        cursor.callproc('add_location', [label, x_coord, y_coord, ip_space])
         conn.commit()
 
         return jsonify({"message": "Location added successfully!"}), 200
