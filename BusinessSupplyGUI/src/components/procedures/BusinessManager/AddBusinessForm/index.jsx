@@ -46,7 +46,7 @@ const AddBusinessForm = () => {
             <Grid container spacing={2}>
                 <Grid item xs={3}>
                     <TextField
-                        label="Business Name"
+                        label="Long Name"
                         variant="outlined"
                         fullWidth
                         value={longName}
@@ -65,7 +65,7 @@ const AddBusinessForm = () => {
                 </Grid>
                 <Grid item xs={3}>
                     <TextField
-                        label="Spent ($)"
+                        label="Spent"
                         variant="outlined"
                         fullWidth
                         type="number"

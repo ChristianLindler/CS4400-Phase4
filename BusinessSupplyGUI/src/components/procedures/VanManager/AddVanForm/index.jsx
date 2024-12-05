@@ -50,7 +50,7 @@ const AddVanForm = () => {
             <Grid container spacing={2}>
                 <Grid item xs={2}>
                     <TextField
-                        label="Van ID"
+                        label="ID"
                         variant="outlined"
                         fullWidth
                         value={vanId}

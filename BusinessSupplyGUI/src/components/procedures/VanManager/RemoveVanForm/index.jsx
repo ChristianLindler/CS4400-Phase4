@@ -42,7 +42,7 @@ const RemoveVanForm = () => {
             <Grid container spacing={2}>
                 <Grid item xs={6}>
                     <TextField
-                        label="Van ID"
+                        label="ID"
                         variant="outlined"
                         fullWidth
                         value={vanId}

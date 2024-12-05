@@ -57,7 +57,7 @@ const PurchaseProductForm = () => {
                 </Grid>
                 <Grid item xs={2}>
                     <TextField
-                        label="Product ID"
+                        label="ID"
                         variant="outlined"
                         fullWidth
                         value={productId}

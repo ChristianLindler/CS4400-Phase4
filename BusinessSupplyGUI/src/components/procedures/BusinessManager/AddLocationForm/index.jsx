@@ -75,7 +75,7 @@ const AddLocationForm = () => {
                 </Grid>
                 <Grid item xs={3}>
                     <TextField
-                        label="IP Space"
+                        label="Space"
                         variant="outlined"
                         fullWidth
                         value={ipSpace}

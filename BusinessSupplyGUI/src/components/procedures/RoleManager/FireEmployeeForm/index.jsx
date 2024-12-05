@@ -48,7 +48,7 @@ const FireEmployeeForm = () => {
                 </Grid>
                 <Grid item xs={6}>
                 <TextField
-                    label="Employee ID"
+                    label="ID"
                     variant="outlined"
                     fullWidth
                     value={id}

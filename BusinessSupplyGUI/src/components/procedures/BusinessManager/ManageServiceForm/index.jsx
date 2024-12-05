@@ -51,7 +51,7 @@ const ManageServiceForm = () => {
                 </Grid>
                 <Grid item xs={6}>
                     <TextField
-                        label="Service ID"
+                        label="ID"
                         variant="outlined"
                         fullWidth
                         value={serviceId}

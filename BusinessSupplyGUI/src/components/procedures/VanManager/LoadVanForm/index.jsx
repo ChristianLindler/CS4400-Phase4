@@ -48,7 +48,7 @@ const LoadVanForm = () => {
             <Grid container spacing={2}>
                 <Grid item xs={2}>
                     <TextField
-                        label="Van ID"
+                        label="ID"
                         variant="outlined"
                         fullWidth
                         value={vanId}
@@ -75,7 +75,7 @@ const LoadVanForm = () => {
                 </Grid>
                 <Grid item xs={2}>
                     <TextField
-                        label="Number of Packages"
+                        label="More Packages"
                         variant="outlined"
                         fullWidth
                         type="number"
@@ -85,7 +85,7 @@ const LoadVanForm = () => {
                 </Grid>
                 <Grid item xs={3}>
                     <TextField
-                        label="Price per Package"
+                        label="Price"
                         variant="outlined"
                         fullWidth
                         type="number"

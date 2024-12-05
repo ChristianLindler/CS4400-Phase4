@@ -46,7 +46,7 @@ const AddServiceForm = () => {
             <Grid container spacing={2}>
                 <Grid item xs={3}>
                     <TextField
-                        label="Service ID"
+                        label="ID"
                         variant="outlined"
                         fullWidth
                         value={serviceId}

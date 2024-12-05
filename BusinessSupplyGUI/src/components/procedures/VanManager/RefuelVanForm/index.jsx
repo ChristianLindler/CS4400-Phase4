@@ -44,7 +44,7 @@ const RefuelVanForm = () => {
             <Grid container spacing={2}>
                 <Grid item xs={4}>
                     <TextField
-                        label="Van ID"
+                        label="ID"
                         variant="outlined"
                         fullWidth
                         value={vanId}
@@ -62,7 +62,7 @@ const RefuelVanForm = () => {
                 </Grid>
                 <Grid item xs={4}>
                     <TextField
-                        label="Fuel Amount (liters)"
+                        label="More Fuel"
                         variant="outlined"
                         fullWidth
                         type="number"
